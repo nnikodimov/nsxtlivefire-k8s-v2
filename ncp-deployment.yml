@@ -352,16 +352,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-          livenessProbe:
-            exec:
-              command:
-                - /bin/sh
-                - -c
-                - timeout 5 check_pod_liveness nsx-ncp
-            initialDelaySeconds: 5
-            timeoutSeconds: 5
-            periodSeconds: 10
-            failureThreshold: 5
           volumeMounts:
           - name: config-volume
             # NCP expects ncp.ini is present in /etc/nsx-ujo
